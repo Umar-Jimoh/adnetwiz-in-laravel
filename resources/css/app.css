@@ -2,10 +2,387 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-slate-100 text-sm text-[#3e3e3e]
+      min-[720px]:text-base;
+}
+
+.container {
+  @apply max-w-full mb-0;
+}
+
+.active-link {
+  @apply hover:text-blue-500 outline-none focus:outline-none focus:text-blue-500
+        hover:duration-300
+}
+
+.active-img {
+  @apply hover:opacity-70 hover:duration-300
+}
+
+/* note: Navigation */
+.navigation {
+  @apply z-10 top-0 w-full items-center bg-gray-800 text-white outline outline-1 outline-slate-600
+        tablet:flex tablet:justify-between tablet:px-12;
+}
+
+.navbar-icon {
+  @apply flex justify-between items-center;
+}
+
+.menu-icon {
+  @apply p-5 cursor-pointer outline outline-1 outline-slate-600
+        tablet:hidden;
+}
+
 .logo {
-    @apply font-bold text-xl min-[670px]:text-2xl mx-auto;
-  }
-  
-  .logo a {
-    @apply focus:outline-none
-  }  
+  @apply font-bold text-xl min-[670px]:text-2xl mx-auto;
+}
+
+.logo a {
+  @apply focus:outline-none
+}
+
+.search-icon {
+  @apply p-5 cursor-pointer outline outline-1 outline-slate-600
+  tablet:outline-none tablet:justify-self-start tablet:absolute tablet:right-12;
+}
+
+/* note: Navbar */
+.navbar {
+  @apply hidden w-auto  z-10  bg-gray-800 text-white px-8 py-3 outline outline-1 outline-slate-600
+        tablet:outline-none tablet:inline-block tablet:mr-12;
+}
+
+.nav-active {
+  @apply block absolute w-full duration-1000;
+}
+
+.navbar-link {
+  @apply tablet:flex tablet:flex-row tablet:justify-end;
+}
+
+.navbar-link__item {
+  @apply py-4 
+        min-[720px]:text-base
+        tablet:border-none tablet:mr-8
+}
+
+.navbar-link__item a{
+  @apply hover:text-slate-400 focus:outline-none  focus:text-slate-400  active:text-slate-400
+          hover:duration-300
+}
+
+.navbar-link__item:not(:last-child) {
+  @apply border-b border-b-slate-600
+         tablet:mr-12;
+}
+
+/* note: End Navbar */
+
+/* note: End Navigation */
+
+/* note: Search */
+.search {
+  @apply hidden w-full z-10 bg-gray-800 py-4 mx-auto outline outline-1 outline-slate-600;
+}
+
+.search-active {
+  @apply flex justify-center absolute;
+}
+
+.search-input {
+  @apply w-8/12 max-w-lg py-2 px-4 outline-none text-sm rounded-md placeholder:text-sm
+        min-[670px]:text-base min-[670px]:placeholder:text-base;
+}
+
+/* note: End Searchbar */
+
+/* note: Content */
+.content,
+.individual-post-content {
+  @apply pt-8 w-full max-w-[430px] mx-auto 
+        min-[670px]:max-w-[720px] 
+        laptop:flex laptop:max-w-[1050px];
+}
+
+/* note: End Content */
+
+/* note: Sub Content */
+.sub-content {
+  @apply min-[720px]:flex
+        laptop:block laptop:ml-8;
+}
+/* note: End Sub Content */
+
+/* note: Post Container */
+
+.category {
+  @apply text-[1.4rem] text-center font-bold mt-6 capitalize
+        mobilemd:text-2xl;
+}
+
+.post-container,
+.individual-post-container {
+  @apply w-full flex flex-wrap mt-2;
+}
+
+.individual-post-container {
+  @apply laptop:mt-12;
+}
+
+.post-container {
+  @apply min-[670px]:grid min-[670px]:grid-cols-2 min-[670px]:grid-flow-row;
+}
+
+.post,
+.individual-post {
+  @apply relative flex flex-col bg-white mx-4 my-4 w-full shadow-md rounded-md;
+}
+
+.post {
+  @apply mobile:w-11/12 mx-4;
+}
+
+.post-img {
+  @apply block mx-auto;
+}
+
+.post-tag {
+  @apply absolute top-4 left-6 px-2 py-1 rounded-sm text-[10px] leading-3 text-white bg-green-500 font-semibold uppercase;
+}
+
+.post-info,
+.individual-post-info {
+  @apply p-5 pb-10;
+}
+
+.post-title,
+.individual-post-title {
+  @apply font-semibold mb-4 text-base;
+}
+
+.post-title {
+  @apply min-[720px]:text-lg;
+}
+
+.individual-post-title {
+  @apply min-[720px]:text-xl;
+}
+
+.post-author {
+  @apply flex items-center mt-4 mb-1 text-xs text-gray-500;
+}
+
+.post-author--name {
+  @apply capitalize;
+}
+
+.post-author--icon {
+  @apply w-4 mr-1 stroke-slate-700;
+}
+
+.post-date {
+  @apply flex items-center mb-4;
+}
+
+.post-date--text {
+  @apply text-gray-500 text-xs;
+}
+
+.post-date--icon {
+  @apply w-4 mr-1;
+}
+
+/* note: End Post Container */
+
+/* note: Recent Post and Popular Post */
+
+.recent-post-container,
+.popular-post-container {
+  @apply flex flex-wrap flex-col bg-white mx-4 mt-16 shadow-md rounded-md;
+}
+
+.recent-post-header,
+.popular-post-header {
+  @apply font-semibold text-base p-5 border-b-4;
+}
+
+.recent-post-info,
+.popular-post-info {
+  @apply flex p-5;
+}
+
+.recent-post-title,
+.popular-post-title,
+.related-post-title {
+  @apply font-semibold mb-2 max-w-sm text-sm;
+}
+
+/* note: End Recent Post and Popular Post */
+
+/* note: Recent Post, relatated post and Popular Post */
+
+.recent-post-img,
+.related-post-img,
+.popular-post-img {
+  @apply mr-4 w-full min-[340px]:w-24 min-[720px]:w-44;
+}
+
+/* note: End Recent Post, relatated post and Popular Post */
+
+/* note: Recent Post */
+
+.recent-post-date {
+  @apply flex;
+}
+/* note: Recent Post */
+
+/* note: ScrollTrigger */
+
+.back-to-top-btn {
+  @apply hidden fixed bottom-14 cursor-pointer right-5 bg-slate-400 rounded-md opacity-0
+        min-[720px]:p-1 hover:bg-slate-500;
+}
+
+.show {
+  @apply block opacity-70;
+}
+
+/* note: End ScrollTrigger */
+
+/* note: Breadcrumb */
+
+.breadcrumb {
+  @apply text-xs mb-4
+        min-[670px]:text-sm;
+}
+
+.breadcrumb-link {
+  @apply flex items-center text-gray-500;
+}
+
+.breadcrumb-link__item {
+  @apply cursor-pointer font-medium;
+}
+
+.breadcrumb-link span {
+  @apply mx-1 cursor-default;
+}
+
+/* note: Breadcrumb */
+
+/* note: Line Demacation */
+
+.line-demacation {
+  @apply w-full mx-auto h-1 bg-slate-300 mb-8 block;
+}
+
+/* note: End Line Demacation */
+
+/* note: Post Header */
+
+.individual-post-header {
+  @apply text-base font-semibold mt-8
+        min-[720px]:text-lg;
+}
+
+/* note: Post Header */
+
+/* note: Post paragraph */
+
+.individual-post-paragraph {
+  @apply my-4;
+}
+
+.individual-post-img {
+  @apply max-w-md mx-auto;
+}
+/* note: End Post Paragraph */
+
+/* note: Post Footer */
+
+.individual-post-footer {
+  @apply mt-8 text-gray-500 font-medium;
+}
+
+.individual-post-label {
+  @apply flex mb-6;
+}
+
+.more-on {
+  @apply text-[#3e3e3e];
+}
+
+.more-on-link {
+  @apply flex cursor-pointer text-xs min-[670px]:text-sm;
+}
+
+.more-on-link__item {
+  @apply mx-2;
+}
+
+.more-on-link__item a {
+  @apply border-b-2 border-b-gray-500
+         hover:text-slate-800 hover:border-b-gray-800
+         focus:outline-none focus:text-slate-800 focus:border-b-gray-800;
+}
+
+.post-nav {
+  @apply flex justify-between text-xs 
+        min-[670px]:text-sm;
+}
+
+.post-nav-link {
+  @apply flex flex-col max-w-[120px] mx-2
+        min-[670px]:max-w-[220px];
+}
+
+/* note: Related Post */
+
+.related-post-container {
+  @apply top-0;
+}
+
+.related-post {
+  @apply mx-auto
+        min-[720px]:grid min-[720px]:grid-cols-2 
+        laptop:grid-cols-3 ;
+}
+
+.related-post-img {
+  @apply laptop:w-2/5;
+}
+
+.related-post-header-container {
+  @apply mt-8 bg-slate-300 rounded-sm;
+}
+
+.related-post-header {
+  @apply font-medium text-[#e3e3e3] text-sm inline-block p-2 uppercase text-left bg-slate-800;
+}
+
+.related-post-title {
+  @apply laptop:max-w-[150px]
+}
+
+.individual-related-post {
+  @apply flex justify-center pt-8
+        laptop:flex-wrap;
+}
+
+/* note: End Related Post */
+
+/* note: End Post Footer */
+
+/* note: End Post Container */
+
+/* note: Footer */
+.footer {
+  @apply bg-gray-800 mt-16 p-8 text-center text-[#e3e3e3];
+}
+/* note: End Footer */
