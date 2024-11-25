@@ -10,6 +10,19 @@ export default {
     ],
 
     theme: {
+        screens: {
+            mobile: '440px',
+            // => @media (min-width: 440px) { ... }
+      
+            mobilemd: '590px',
+            // => @media (min-width: 590px) { ... }
+      
+            tablet: '920px',
+            // => @media (min-width: 920px) { ... }
+      
+            laptop: '990px',
+            // => @media (min-width: 990px) { ... }
+        },
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
