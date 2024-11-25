@@ -1,1 +1,3 @@
-<span>AdnetWiz</span>
+<a href="/" class="logo">
+    AdnetWiz
+</a>
