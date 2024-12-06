@@ -13,6 +13,8 @@ Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('categ
 
 Route::get('/dashboard', [DashboardController::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::post('/dashboard', [DashboardController::class, 'becomeAuthor'])->middleware(['auth', 'verified'])->name('become.author');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
