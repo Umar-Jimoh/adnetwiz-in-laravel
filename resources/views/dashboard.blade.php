@@ -9,6 +9,11 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
+                    @if ($user->role === 'author')
+                    <!-- Author's Dashboard -->
+                    <div>Author's Dashboard</div>
+                    @else
+                    <!-- reader's Dashboard -->
                     {{ __("You're logged in!") }} <b>{{$user->name}}</b>
                     <div class="mt-2">
                         <p class="inline">{{__('You can either edit your ')}}<b>{{__('Profile ')}}</b> {{__('or become an ')}}<b>{{__('Author')}}</b></p>
@@ -20,6 +25,7 @@
                             </form>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
