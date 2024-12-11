@@ -11,6 +11,19 @@ const menu = document.getElementById('navbar')
 const searchIcon = document.getElementById('search-icon')
 const search = document.getElementById('search')
 const backToTopButton = document.querySelector('.back-to-top-btn')
+const myPostsBtn = document.getElementById('my-posts-btn')
+const newPostBtn = document.getElementById('new-post-btn')
+
+
+newPostBtn.addEventListener('click', () => {
+  myPostsBtn.classList.remove("btn-clicked")
+  newPostBtn.classList.add('btn-clicked')
+})
+
+myPostsBtn.addEventListener('click', () => {
+  newPostBtn.classList.remove("btn-clicked")
+  myPostsBtn.classList.add('btn-clicked')
+})
 
 // Add a click event listener to show the menu options
 menuIcon.addEventListener('click', () => {

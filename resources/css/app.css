@@ -386,3 +386,9 @@ body {
   @apply bg-gray-800 mt-16 p-8 text-center text-[#e3e3e3];
 }
 /* note: End Footer */
+
+
+/* DashBoard */
+.btn-clicked {
+  @apply bg-gray-800 text-white 
+}

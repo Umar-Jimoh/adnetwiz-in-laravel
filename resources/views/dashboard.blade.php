@@ -11,7 +11,29 @@
                 <div class="p-6 text-gray-900">
                     @if ($user->role === 'author')
                     <!-- Author's Dashboard -->
-                    <div>Author's Dashboard</div>
+                    <div class="flex">
+                        <nav class="pl-2 pr-8 mr-10 border-r-2 min-h-[600px]">
+                            <ul class="flex flex-col gap-5">
+                                <li><button id="my-posts-btn" class="btn-clicked cursor-pointer inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-gray-800 uppercase tracking-widest hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">{{__('My Posts')}}</button></li>
+                                <li><button id="new-post-btn" class="mb-8 cursor-pointer inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-gray-800 uppercase tracking-widest hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">{{__('New Post')}}</button></li>
+                                <li><a href="{{route('profile.edit')}}" class="w-full inline-flex justify-center items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">{{__('Profile')}}</a></li>
+                                <li>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <a href="{{ route('logout') }}"
+                                            class="w-full inline-flex justify-center items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150"
+                                            onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+                                    </form>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div>
+                            {{__('content')}}
+                        </div>
+                    </div>
                     @else
                     <!-- reader's Dashboard -->
                     {{ __("You're logged in!") }} <b>{{$user->name}}</b>
