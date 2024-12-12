@@ -30,9 +30,65 @@
                                 </li>
                             </ul>
                         </nav>
-                        <div>
-                            {{__('content')}}
-                        </div>
+                        <!-- New post form -->
+                        <form action="" method="POST">
+                            @csrf
+
+                            <div class="flex flex-col text-sm max-w-96">
+                                <h2 class="text-lg font-semibold text-gray-700 mb-4">
+                                    Share Your Insights: Create a New Post
+                                </h2>
+                                <p class="text-sm text-gray-500 mb-6">
+                                    Fill in the details below to create a new post. Make sure to include a captivating title, select the right category, upload a thumbnail, and write engaging content for your audience.
+                                </p>
+                                <!-- Post title  -->
+                                <div class="flex flex-col items-start">
+                                    <x-input-label class="uppercase" for="title" :value="__('Title')" />
+
+                                    <x-text-input id="title" class="block mt-1 w-full"
+                                        type="text"
+                                        name="title"
+                                        placeholder="Enter your post title"
+                                        required />
+
+                                    <x-input-error :messages="$errors->get('title')" class="mt-2" />
+                                </div>
+
+                                <!-- Post category -->
+                                <div class="mt-8 flex flex-col items-start">
+                                    <x-input-label class="uppercase" for="category" :value="__('Choose your post category')" />
+
+                                    <select class="rounded cursor-pointer" name="category" id="category" required>
+                                        <option value="">Select a category</option>
+                                        <option value="display-ads">Display ads</option>
+                                        <option value="native-ads">Native ads</option>
+                                        <option value="network-ads">Network ads</option>
+                                        <option value="social-ads">Social ads</option>
+                                    </select>
+
+                                    <x-input-error :messages="$errors->get('category')" />
+                                </div>
+
+                                <!-- Post thumbnail -->
+                                <div class="mt-8 flex flex-col items-start">
+                                    <x-input-label class="uppercase" for="thumbnail" :value="__('Upload your thumbnail')" />
+
+                                    <input class="rounded bg-[#e5e7eb] mt-1 cursor-pointer" type="file" name="thumbnail" id="thumbnail" accept="image/*" required>
+
+                                    <x-input-error :messages="$errors->get('thumbnail')" />
+                                </div>
+
+                                <!-- Post Content -->
+                                <div class="mt-8 flex flex-col items-start">
+                                    <x-input-label class="uppercase" for="content" :value="__('Content')" />
+
+                                    <textarea class="w-full mt-1 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" rows="18" name="content" id="content" required placeholder="Tell us about your post!!"></textarea>
+
+                                    <x-input-error :messages="$errors->get('content')" />
+                                </div>
+                            </div>
+                            <button class="text-sm mt-8 bg-blue-500 text-white px-4 py-2 rounded" type="submit">Create Post</button>
+                        </form>
                     </div>
                     @else
                     <!-- reader's Dashboard -->
