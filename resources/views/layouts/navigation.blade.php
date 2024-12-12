@@ -38,18 +38,6 @@
             <li class="navbar-link__item no-border">
                 <a href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a>
             </li>
-            <li class="navbar-link__item no-border">
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
-                    <a href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                    this.closest('form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-                </form>
-            </li>
             @endauth
             @guest
             <li class="navbar-link__item no-border">
