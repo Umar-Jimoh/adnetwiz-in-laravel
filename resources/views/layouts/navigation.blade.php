@@ -41,10 +41,10 @@
             @endauth
             @guest
             <li class="navbar-link__item no-border">
-                <a href="/login"> Login </a>
+                <a href="{{route('login')}}"> {{ __('Login') }} </a>
             </li>
             <li class="navbar-link__item no-border">
-                <a href="/register"> Register </a>
+                <a href="{{route('register')}}"> {{ __('Register') }} </a>
             </li>
             @endguest
         </ul>
