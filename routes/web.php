@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\AuthorMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -16,7 +17,7 @@ Route::get('/dashboard', [DashboardController::class, 'show'])->middleware(['aut
 
 Route::post('/dashboard', [DashboardController::class, 'becomeAuthor'])->middleware(['auth', 'verified'])->name('become.author');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', AuthorMiddleware::class])->group(function () {
     Route::resource('posts', PostController::class);
 });
 
