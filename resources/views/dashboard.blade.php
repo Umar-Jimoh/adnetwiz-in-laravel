@@ -32,7 +32,7 @@
                         </nav>
                         <!-- New post form -->
                         <div id="new-post-form" class="hidden">
-                            <form action="" method="POST">
+                            <form action="{{ route('posts.store') }}" method="POST">
                                 @csrf
 
                                 <div class="flex flex-col text-sm max-w-96">
