@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -26,9 +27,17 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'category' => 'required|exists:categories,id',
+            'thumbnail' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'content' => 'required|string|',
+        ]);
+
+        $request->user()->posts()->create($validated);
+
         return redirect(route('dashboard'));
     }
 
