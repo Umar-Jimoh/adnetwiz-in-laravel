@@ -36,6 +36,9 @@ class PostController extends Controller
             'content' => 'required|string|',
         ]);
 
+        $validated['category_id'] = $validated['category']; // Rename the category column to category_id, to store the associated category's ID
+        unset($validated['category']); // Remove the category filed
+
         $request->user()->posts()->create($validated);
 
         return redirect(route('dashboard'));
