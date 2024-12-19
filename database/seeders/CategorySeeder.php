@@ -13,9 +13,9 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        Category::create(['name'=> 'Display Ads']);
-        Category::create(['name'=> 'Native Ads']);
-        Category::create(['name'=> 'Network Ads']);
-        Category::create(['name'=> 'Social Ads']);
+        Category::create(['name'=> 'Display Ads', 'slug' => 'display-ads']);
+        Category::create(['name'=> 'Native Ads', 'slug' => 'native-ads']);
+        Category::create(['name'=> 'Network Ads', 'slug' => 'network-ads']);
+        Category::create(['name'=> 'Social Ads', 'slug' => 'social-ads']);
     }
 }
