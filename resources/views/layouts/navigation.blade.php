@@ -35,16 +35,20 @@
                 <a href="{{ route('category.show', [ 'slug' => 'social-ads']) }}">{{ __('Social ads') }}</a>
             </li>
             @auth
-            <li class="navbar-link__item no-border">
-                <a href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a>
+            <li class="navbar-link__item">
+            <form method="POST" action="{{ route('logout') }}">
+            @csrf
+                <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    this.closest('form').submit();">
+                    {{ __('Logout') }}
+                </a>
+            </form>
             </li>
             @endauth
             @guest
             <li class="navbar-link__item no-border">
                 <a href="{{route('login')}}"> {{ __('Login') }} </a>
-            </li>
-            <li class="navbar-link__item no-border">
-                <a href="{{route('register')}}"> {{ __('Register') }} </a>
             </li>
             @endguest
         </ul>
