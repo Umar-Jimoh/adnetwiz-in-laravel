@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Enums\RolesEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+
+use filament\Pages\Dashboard;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -28,7 +31,14 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('home', absolute: false));
+        /** @var User $user */
+        $user = Auth::user();
+
+        if ($user->hasRole(RolesEnum::Admin)) {
+            return redirect()->route('filament.admin.pages.dashboard');
+        } else {
+            return redirect()->intended(route('home', absolute: false));
+        }
     }
 
     /**
