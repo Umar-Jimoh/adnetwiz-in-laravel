@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
+            $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete()->index();
             $table->string('title');
-            $table->string('thumbnail');
-            $table->text('content');
+            $table->string('slug')->unique();
+            $table->longText('content');
+            $table->string('status');
             $table->timestamps();
         });
     }
