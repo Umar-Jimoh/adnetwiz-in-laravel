@@ -61,7 +61,7 @@ class PostResource extends Resource
                     ->columnSpan(2)
                     ->required(),
                 Select::make('status')
-                    ->options(PostStatusEnum::label())
+                    ->options(PostStatusEnum::labels())
                     ->default(PostStatusEnum::Draft)
                     ->required()
             ]);
@@ -75,8 +75,12 @@ class PostResource extends Resource
                     ->searchable()
                     ->sortable()
                     ->limit(30),
+                TextColumn::make('category.name')
+                    ->searchable(),
                 TextColumn::make('status')
                     ->searchable()
+                    ->badge()
+                    ->colors(PostStatusEnum::colors())
             ])
             ->filters([
                 //

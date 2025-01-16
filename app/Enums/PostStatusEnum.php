@@ -4,15 +4,22 @@ namespace App\Enums;
 
 enum PostStatusEnum: string
 {
-    case Draft = 'Draft';
-    case Published = 'Published';
+    case Draft = 'draft';
+    case Published = 'published';
 
-    public static function label(): Array 
+    public static function labels(): array
     {
         return [
-            self::Draft->value => __('Draft'), 
-            self::Published->value => __('Published'), 
+            self::Draft->value => __('Draft'),
+            self::Published->value => __('Published'),
+        ];
+    }
+
+    public static function colors(): array
+    {
+        return [
+            'grey' => self::Draft->value,
+            'success' => self::Published->value
         ];
     }
 }
-
