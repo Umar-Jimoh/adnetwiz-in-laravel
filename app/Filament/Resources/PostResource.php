@@ -9,6 +9,7 @@ use App\Models\Post;
 use Filament\Forms;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -40,6 +41,13 @@ class PostResource extends Resource
                     ->label(__('Category'))
                     ->preload()
                     ->searchable()
+                    ->required(),
+                SpatieMediaLibraryFileUpload::make('images')
+                    ->label('Featured Image')
+                    ->collection('images')
+                    ->image()
+                    ->openable()
+                    ->preserveFilenames()
                     ->required(),
                 RichEditor::make('content')
                     ->toolbarButtons([
