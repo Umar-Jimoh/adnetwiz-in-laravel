@@ -17,6 +17,7 @@ class PostListResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
+            'slug' => $this->slug,
             'content' => $this->content,
             'image' => $this->getFirstMediaUrl('images', 'card'),
             'wow' => [
@@ -26,6 +27,7 @@ class PostListResource extends JsonResource
             'category' => [
                 'id' => $this->category->id,
                 'name' => $this->category->name,
+                'slug' => $this->category->slug,
             ],
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
