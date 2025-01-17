@@ -114,21 +114,21 @@ body {
 
 /* note: Sub Content */
 .sub-content {
-  @apply min-[720px]:flex
-        laptop:block laptop:ml-8;
+  @apply mb-6 min-[720px]:flex
+        laptop:block laptop:ml-8 laptop:mt-6;
 }
 /* note: End Sub Content */
 
 /* note: Post Container */
 
 .category {
-  @apply text-[1.4rem] text-center font-bold mt-6 capitalize
-        mobilemd:text-2xl;
+  @apply text-[1.4rem] text-center font-bold mt-8 mb-6 capitalize
+        mobilemd:text-[1.5rem];
 }
 
 .post-container,
 .individual-post-container {
-  @apply w-full flex flex-wrap mt-2;
+  @apply w-full flex flex-wrap;
 }
 
 .individual-post-container {
@@ -204,7 +204,7 @@ body {
 
 .recent-post-container,
 .popular-post-container {
-  @apply flex flex-wrap flex-col bg-white mx-4 mt-16 shadow-md rounded-md;
+  @apply flex flex-wrap flex-col bg-white mx-auto min-[720px]:mx-4 mt-16 shadow-md rounded-md max-w-max;
 }
 
 .recent-post-header,
@@ -227,10 +227,12 @@ body {
 
 /* note: Recent Post, relatated post and Popular Post */
 
-.recent-post-img,
-.related-post-img,
-.popular-post-img {
+.related-post-img {
   @apply mr-4 w-full min-[340px]:w-24 min-[720px]:w-44;
+}
+
+.recent-post-img, .popular-post-img {
+  @apply active-img w-36 h-24 object-cover
 }
 
 /* note: End Recent Post, relatated post and Popular Post */

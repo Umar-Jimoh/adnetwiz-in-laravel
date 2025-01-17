@@ -10,7 +10,8 @@
 </head>
 
 <body>
-    @include('layouts.navigation')
+    <div class="container">
+ @include('layouts.navigation')
 
     <div class="content">
         <div class="main-content">
@@ -20,6 +21,7 @@
         <div class="sub-content">
             @yield('sub-content')
         </div>
+    </div>
     </div>
 
 </body>
