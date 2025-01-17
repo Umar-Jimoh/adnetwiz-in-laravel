@@ -9,5 +9,8 @@
 </head>
 <body>
     @include('layouts.navigation')
-</body>
+    @foreach ($posts->data as $post)
+        {{$post->title}}
+    @endforeach
+    </body>
 </html>

@@ -32,6 +32,12 @@ class Post extends Model implements HasMedia
             ->width(620);
     }
 
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+
+    }
+
     public function category(): BelongsTo
     {
 
