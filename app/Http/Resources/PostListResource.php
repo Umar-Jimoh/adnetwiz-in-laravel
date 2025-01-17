@@ -20,7 +20,7 @@ class PostListResource extends JsonResource
             'slug' => $this->slug,
             'content' => $this->content,
             'image' => $this->getFirstMediaUrl('images', 'card'),
-            'wow' => [
+            'user' => [
                 'id' => $this->user->id,
                 'name' => $this->user->name,
             ],
