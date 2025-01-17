@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{@config('app.name', 'AdnetWiz')}}</title>
+@extends('layouts.app')
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body>
-    @include('layouts.navigation')
-</body>
-</html>
+@section('main-content')
+    <!-- Dynamic content for the main content area (list of posts) -->
+    <h1 class="category">{{__('Home')}}</h1>
+    <div class="post-container">
+        @foreach ($posts->data as $post)
+            <x-post-card :post="$post" />
+            @endforeach
+        </div>
+@endsection
