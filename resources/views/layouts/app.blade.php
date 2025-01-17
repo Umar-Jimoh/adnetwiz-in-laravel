@@ -11,7 +11,17 @@
 
 <body>
     @include('layouts.navigation')
-    {{ $slot }}
-   
+
+    <div class="content">
+        <div class="main-content">
+            @yield('main-content')
+            
+        </div>
+        <div class="sub-content">
+            @yield('sub-content')
+        </div>
+    </div>
+
 </body>
+
 </html>
