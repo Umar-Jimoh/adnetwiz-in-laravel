@@ -2,7 +2,7 @@
 
 <div class='recent-post-info'>
     <div class="mr-4">
-        <a href="{{$post->category->slug . '/' . $post->slug}}">
+        <a href="{{'/' . $post->category->slug . '/' . $post->slug}}">
             <img
                 src="{{$post->image}}"
                 alt="{{$post->slug}}"
@@ -13,7 +13,7 @@
     <div class='flex flex-col w-64'>
         <h3 class='recent-post-title'>
             <a
-                href="{{$post->category->slug . '/' . $post->slug}}"
+                href="{{'/' . $post->category->slug . '/' . $post->slug}}"
                 class='active-link ml-0 w-full'>
                 {{$post->title}}
             </a>
