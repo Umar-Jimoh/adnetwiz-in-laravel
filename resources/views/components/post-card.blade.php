@@ -2,7 +2,7 @@
 
 <div class="post overflow-hidden">
     <a href="{{ '/' . $post->category->slug . '/' . $post->slug }}">
-        <img src="{{ $post->image }}" alt="" class="post-image active-image w-full h-80 object-cover">
+        <img src="{{ $post->image }}" alt="" class="post-image active-image w-full h-60 object-cover">
     </a>
     <span class="post-tag">{{ $post->category->name }}</span>
     <div class="post-info">
