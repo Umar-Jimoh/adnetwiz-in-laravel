@@ -1,6 +1,5 @@
 <x-app-layout>
     @section('main-content')
-    <h1 class="invisible">{{$post->title}}</h1>
     <div class='individual-post-container'>
         <div class='individual-post'>
             <div class='individual-post-info'>
