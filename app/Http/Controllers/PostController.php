@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\PostListResource;
 use App\Models\Post;
+use Illuminate\View\View;
 
 class PostController extends Controller
 {
@@ -17,6 +18,15 @@ class PostController extends Controller
     
         // Transform both data and pagination
         return view('home', ['posts' => PostListResource::collection($posts)->response()->getData()]);
+    }
+
+    function show(string $categorySlug, string $postSlug): View
+    {   
+        $post = Post::where('slug', $postSlug)->firstOrFail();
+
+        $post = new PostListResource($post);
+
+        return view('post.show', ['post' => $post->resource]);
     }
     
 }
