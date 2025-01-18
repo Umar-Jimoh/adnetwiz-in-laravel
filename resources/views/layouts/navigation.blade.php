@@ -29,7 +29,7 @@
                 <a href="{{ route('category.show', [ 'slug' => 'native-ads']) }}">{{ __('Native ads') }}</a>
             </li>
             <li class="navbar-link__item">
-                <a href="{{ route('category.show', [ 'slug' => 'normal-ads']) }}">{{ __('Normal ads') }}</a>
+                <a href="{{ route('category.show', [ 'slug' => 'network-ads']) }}">{{ __('Network ads') }}</a>
             </li>
             <li class="navbar-link__item">
                 <a href="{{ route('category.show', [ 'slug' => 'social-ads']) }}">{{ __('Social ads') }}</a>
