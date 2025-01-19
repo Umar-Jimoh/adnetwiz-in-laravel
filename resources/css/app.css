@@ -106,7 +106,7 @@ body {
 .content {
   @apply pt-16 pb-8 mx-auto px-4
         min-[670px]:max-w-[720px]
-        laptop:flex laptop:max-w-[1050px] min-[1280px]:max-w-[1380px];
+        laptop:flex laptop:items-start laptop:max-w-[1050px] min-[1280px]:max-w-[1380px];
 }
 
 /* note: End Content */
