@@ -26,8 +26,13 @@ class AppServiceProvider extends ServiceProvider
 
         view()->composer(['home', 'category.show', 'post.show'], function ($view) {
             
-            $recentPosts = Post::latest()->limit(5)->get();
-            $popularPosts = Post::inRandomOrder()->limit(5)->get();
+            $recentPosts = cache()->remember('recent-posts', now()->addMinutes(30), function () {
+                return Post::latest()->limit(5)->get();
+            });
+
+            $popularPosts = cache()->remember('popular-posts', now()->addMinutes(30), function () {
+                return Post::inRandomOrder()->limit(5)->get();
+            });
 
             $recentPostsResource = PostListResource::collection($recentPosts);
             $popularPostsResource = PostListResource::collection($popularPosts);
