@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout :recentPosts="$recentPosts" :popularPosts="$popularPosts">
     @section('main-content')
     <div class='individual-post-container'>
         <div class='individual-post'>

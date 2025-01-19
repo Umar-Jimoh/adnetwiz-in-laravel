@@ -9,19 +9,31 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
+@props(['recentPosts', 'popularPosts'])
 <body>
     <div class="container">
- @include('layouts.navigation')
+        @include('layouts.navigation')
 
-    <div class="content">
-        <div class="main-content">
-            @yield('main-content')
-            
+        <div class="content">
+            <div class="main-content">
+                @yield('main-content')
+
+            </div>
+            <div class="sub-content">
+                <div class='recent-post-container'>
+                    <h2 class='recent-post-header'>{{__('Recent Post')}}</h2>
+                    @foreach ($recentPosts->data as $post)
+                    <x-recent-post :post="$post" />
+                    @endforeach
+                </div>
+                <div class='popular-post-container'>
+                    <h2 class='popular-post-header'>{{__('Popular Post')}}</h2>
+                    @foreach ($popularPosts->data as $post)
+                    <x-popular-post :post="$post" />
+                    @endforeach
+                </div>
+            </div>
         </div>
-        <div class="sub-content">
-            @yield('sub-content')
-        </div>
-    </div>
     </div>
 
 </body>
