@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PostResource;
 use App\Http\Resources\PostListResource;
 use App\Models\Post;
 use Illuminate\View\View;
@@ -24,9 +25,8 @@ class PostController extends Controller
     {   
         $post = Post::where('slug', $postSlug)->firstOrFail();
 
-        $post = new PostListResource($post);
-
-        return view('post.show', ['post' => $post->resource]);
+        $postResource = new PostResource($post);
+        return view('post.show', ['post' => $postResource->response()->getData()->data]);
     }
     
 }
