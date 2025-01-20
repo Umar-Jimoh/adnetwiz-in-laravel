@@ -16,17 +16,17 @@ const newPostBtn = document.getElementById('new-post-btn')
 const newPostForm = document.getElementById('new-post-form')
 
 
-newPostBtn.addEventListener('click', () => {
-  myPostsBtn.classList.remove("btn-clicked")
-  newPostBtn.classList.add('btn-clicked')
-  newPostForm.classList.remove('hidden')
-})
+// newPostBtn.addEventListener('click', () => {
+//   myPostsBtn.classList.remove("btn-clicked")
+//   newPostBtn.classList.add('btn-clicked')
+//   newPostForm.classList.remove('hidden')
+// })
 
-myPostsBtn.addEventListener('click', () => {
-  newPostBtn.classList.remove("btn-clicked")
-  myPostsBtn.classList.add('btn-clicked')
-  newPostForm.classList.add('hidden')
-})
+// myPostsBtn.addEventListener('click', () => {
+//   newPostBtn.classList.remove("btn-clicked")
+//   myPostsBtn.classList.add('btn-clicked')
+//   newPostForm.classList.add('hidden')
+// })
 
 // Add a click event listener to show the menu options
 menuIcon.addEventListener('click', () => {
@@ -68,7 +68,7 @@ searchIcon.addEventListener('click', () => {
 
 // Add a scroll event listener to the window object
 window.addEventListener('scroll', () => {
-  const scrollTrigger = 100
+  const scrollTrigger = 480
 
   const scroolTop = window.pageYOffset || document.documentElement.scrollTop
 

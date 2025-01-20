@@ -10,6 +10,7 @@
 </head>
 
 @props(['recentPosts', 'popularPosts'])
+
 <body>
     <div class="container">
         @include('layouts.navigation')
@@ -34,7 +35,7 @@
                 </div>
             </div>
         </div>
-
+        <x-back-to-top />
         @include('layouts.footer')
     </div>
 

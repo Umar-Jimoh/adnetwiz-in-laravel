@@ -264,8 +264,8 @@ body {
 /* note: ScrollTrigger */
 
 .back-to-top-btn {
-  @apply hidden fixed bottom-14 cursor-pointer right-5 bg-slate-400 rounded-md opacity-0
-        min-[720px]:p-1 hover:bg-slate-500;
+  @apply hidden fixed bottom-20 cursor-pointer right-8 bg-slate-800 rounded-md opacity-0
+        min-[720px]:p-1 hover:bg-gray-800 hover:opacity-100;
 }
 
 .show {
