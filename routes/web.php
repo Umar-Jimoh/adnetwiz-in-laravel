@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 
+Route::get('/search', [PostController::class, 'search'])->name('search');
+
 Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('category.show');
 
 Route::get('/{categorySlug}/{postSlug}', [PostController::class, 'show'])->name('post.show');

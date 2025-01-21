@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Model::unguard();
 
-        view()->composer(['home', 'category.show', 'post.show'], function ($view) {
+        view()->composer(['home', 'category.show', 'post.show', 'search'], function ($view) {
             
             $recentPosts = cache()->remember('recent-posts', now()->addMinutes(30), function () {
                 return Post::latest()->limit(5)->get();
