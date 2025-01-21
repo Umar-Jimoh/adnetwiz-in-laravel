@@ -23,16 +23,16 @@
     <nav class="navbar" id="navbar">
         <ul class="navbar-link">
             <li class="navbar-link__item">
-                <a href="{{ route('category.show', [ 'slug' => 'display-ads']) }}"> {{ __('Display ads') }}</a>
+                <x-nav-link :href="route('category.show', [ 'slug' => 'display-ads'])" :active="request()->is('category/display-ads')">{{ __('Display ads') }}</x-nav-link>
             </li>
             <li class="navbar-link__item">
-                <a href="{{ route('category.show', [ 'slug' => 'native-ads']) }}">{{ __('Native ads') }}</a>
+                <x-nav-link :href="route('category.show', [ 'slug' => 'native-ads'])" :active="request()->is('category/native-ads')">{{ __('Native ads') }}</x-nav-link>
             </li>
             <li class="navbar-link__item">
-                <a href="{{ route('category.show', [ 'slug' => 'network-ads']) }}">{{ __('Network ads') }}</a>
+                <x-nav-link :href="route('category.show', [ 'slug' => 'network-ads'])" :active="request()->is('category/network-ads')">{{ __('Network ads') }}</x-nav-link>
             </li>
             <li class="navbar-link__item">
-                <a href="{{ route('category.show', [ 'slug' => 'social-ads']) }}">{{ __('Social ads') }}</a>
+                <x-nav-link :href="route('category.show', [ 'slug' => 'social-ads'])" :active="request()->is('category/social-ads')">{{ __('Social ads') }}</x-nav-link>
             </li>
             @auth
             <li class="navbar-link__item">

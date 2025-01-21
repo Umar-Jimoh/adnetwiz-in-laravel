@@ -73,8 +73,7 @@ body {
 }
 
 .navbar-link__item a{
-  @apply hover:text-slate-400 focus:outline-none  focus:text-slate-400  active:text-slate-400
-          hover:duration-300
+  @apply py-6 px-2 outline-none hover:text-slate-400 hover:duration-300 focus:text-slate-400
 }
 
 .navbar-link__item:not(:last-child) {
