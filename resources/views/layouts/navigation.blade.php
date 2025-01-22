@@ -23,16 +23,16 @@
     <nav class="navbar" id="navbar">
         <ul class="navbar-link">
             <li class="navbar-link__item">
-                <a href="{{ route('category.show', [ 'slug' => 'display-ads']) }}"> {{ __('Display ads') }}</a>
+                <x-nav-link :href="route('category.show', [ 'slug' => 'display-ads'])" :active="request()->is('category/display-ads')">{{ __('Display ads') }}</x-nav-link>
             </li>
             <li class="navbar-link__item">
-                <a href="{{ route('category.show', [ 'slug' => 'native-ads']) }}">{{ __('Native ads') }}</a>
+                <x-nav-link :href="route('category.show', [ 'slug' => 'native-ads'])" :active="request()->is('category/native-ads')">{{ __('Native ads') }}</x-nav-link>
             </li>
             <li class="navbar-link__item">
-                <a href="{{ route('category.show', [ 'slug' => 'normal-ads']) }}">{{ __('Normal ads') }}</a>
+                <x-nav-link :href="route('category.show', [ 'slug' => 'network-ads'])" :active="request()->is('category/network-ads')">{{ __('Network ads') }}</x-nav-link>
             </li>
             <li class="navbar-link__item">
-                <a href="{{ route('category.show', [ 'slug' => 'social-ads']) }}">{{ __('Social ads') }}</a>
+                <x-nav-link :href="route('category.show', [ 'slug' => 'social-ads'])" :active="request()->is('category/social-ads')">{{ __('Social ads') }}</x-nav-link>
             </li>
             @auth
             <li class="navbar-link__item">
@@ -58,9 +58,10 @@
 <!-- note:End Navigation -->
 
 <!-- note: Search -->
-<form>
+<form action="{{ route('search') }}" method="GET">
     <div class="search" id="search">
-        <input type="search" class="search-input" placeholder="Search..." />
+        <input type="search" name="q" class="search-input" placeholder="{{ __('Search...') }}" value="{{ request('q') }}" />
+        <button class="ml-2 inline-flex items-center px-4 py-2 bg-gray-400 border border-transparent rounded-md font-semibold text-xs text-gray-800 hover:text-white focus:text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150" type="submit">Search</button>
     </div>
 </form>
 <!-- note: End Searchbar -->

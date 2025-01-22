@@ -1,13 +1,13 @@
 @props(['post'])
 
 <div class="post overflow-hidden">
-    <a href="{{ $post->category->slug . '/' . $post->slug }}">
-        <img src="{{ $post->image }}" alt="" class="post-image active-image w-full h-80 object-cover">
+    <a href="{{ '/' . $post->category->slug . '/' . $post->slug }}">
+        <img src="{{ $post->image }}" alt="" class="post-image active-img w-full h-60 object-cover">
     </a>
     <span class="post-tag">{{ $post->category->name }}</span>
     <div class="post-info">
         <h3 class="post-title">
-            <a href="{{ $post->category->slug . '/' . $post->slug }}" class="active-link">
+            <a href="{{ '/' . $post->category->slug . '/' . $post->slug }}" class="active-link">
                 {{ $post->title }}
             </a>
         </h3>
